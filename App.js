@@ -23,22 +23,23 @@ export default function App() {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, minHight: 1000, paddingTop: 50 }}>
       <View>
         {
           fetching ? <Text>Fetching...</Text> :
             <>
               {
                 products.length ?
-                  <>
+                  <View>
                     <FlatList
-                      numColumns={2}
                       data={products}
                       renderItem={ProductCard}
                       keyExtractor={(item) => item.id}
+                      ListFooterComponent={
+                        <Button title={loading ? 'Loading' : 'Load more'} onPress={handlePress} />
+                      }
                     />
-                    <Button title={loading ? 'Loading' : 'Load more'} onPress={handlePress} />
-                  </>
+                  </View>
                   :
                   <Text>No products...</Text>
               }

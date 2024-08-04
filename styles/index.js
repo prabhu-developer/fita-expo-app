@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
     productImage: {
         width: '100%',
         height: 200,
+        backgroundColor: 'gray'
     },
     infoContainer: {
         padding: 15,
